@@ -1,0 +1,44 @@
+<mat-drawer-container class="container" autosize [class.dark-theme]="isDark">
+  <mat-drawer #drawer class="sidenav mat-elevation-z10"
+              [mode]="isScreenSmall ? 'over' : 'side'"
+              [opened]="!isScreenSmall"
+              [autoFocus]="false">
+    <mat-toolbar color="primary" class="toolbar">
+     <span>Menu list</span>
+    </mat-toolbar>
+    <mat-list  role="list" class="menu">
+      <mat-list-item class="menu-item" *ngFor="let link of links" role="listitem">
+        <a mat-button class="menu-btn" color="accent" routerLink="/{{link.path}}">
+          {{link.value}}
+        </a>
+      </mat-list-item>
+    </mat-list>
+
+
+
+
+  </mat-drawer>
+  <div class="sidenav-content" [class.dark-theme]="isDark">
+    <mat-toolbar [color]="themeColor" >
+      <button mat-button (click)="drawer.toggle()" class="sidenav-toggle">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Test application</span>
+      <span class="example-spacer"></span>
+      <mat-icon class="mode-icon">
+        brightness_5
+      </mat-icon>
+      <mat-slide-toggle (click)="toggleTheme()" matTooltip="Toggle dark theme">
+
+      </mat-slide-toggle>
+      <mat-icon class="mode-icon">
+        brightness_3
+      </mat-icon>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+
+  </div>
+
+
+</mat-drawer-container>

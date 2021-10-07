@@ -1,0 +1,32 @@
+
+
+.app-wrap {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+.todo-form {
+  width: 30%;
+}
+.todo-table {
+  width: 65%;
+}
+
+@media (max-width: 1200px) {
+  .app-wrap {
+    flex-direction: column;
+  }
+  .todo-form {
+    align-self: center;
+    width: 60%;
+    margin-bottom: 10px;
+  }
+  .todo-table {
+    width: 100%;
+  }
+}
+@media (max-width: 789px) {
+  .todo-form {
+    width: 80%;
+  }
+}

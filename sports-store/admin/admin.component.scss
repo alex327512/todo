@@ -1,0 +1,22 @@
+
+.admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  &-buttons {
+    padding: 5px;
+
+    button {
+      margin: 10px 5px;
+    }
+  }
+  &-table {
+  }
+}
+

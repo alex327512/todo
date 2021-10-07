@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  Add new todo
+</mat-toolbar>
+<mat-card>
+
+<!--  <div class="form-wrap">-->
+    <form #f="ngForm" class="todo-form" (ngSubmit)="onSubmit(f)" novalidate>
+  <!--    <i class="fa fa-shopping-cart"></i>-->
+      <mat-form-field class="form-field">
+
+        <input type="text"  matInput placeholder="Task" name="action" [(ngModel)]="action" required>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <input type="text" matInput placeholder="Location" name="location" [(ngModel)]="location">
+      </mat-form-field>
+      <mat-checkbox class="form-checkbox" name="complete" [(ngModel)] = "complete">Done</mat-checkbox>
+      <div class="btn-wrap">
+        <button mat-raised-button class="form-btn" color="primary" type="submit" [disabled]="!f.valid">Add</button>
+        <button type="button" mat-raised-button class="form-btn" color="warn" (click)="onClear(f)">Clear</button>
+      </div>
+    </form>
+<!--  </div>-->
+</mat-card>

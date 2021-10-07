@@ -1,0 +1,63 @@
+@import "~@angular/material/theming";
+@import "mixins";
+
+@import "app/sports-store/store/store.component";
+//@import "app/sports-store/store/cart-summary/cart-summary.component";
+
+@include mat-core();
+
+$light-primary: mat-palette($mat-light-blue, 500, 100, 900);
+$light-accent: mat-palette($mat-purple, 300);
+$light-warn: mat-palette($mat-red);
+$light-brown: mat-palette($mat-brown, 200);
+
+
+@function my-light-theme($primary, $accent, $warn, $extra-color) {
+  @return map-merge(mat-light-theme($primary, $accent, $warn),
+    (inactive: $extra-color));
+}
+$my-light-theme: my-light-theme(
+    $light-primary,
+    $light-accent,
+    $light-warn,
+    $light-brown
+);
+
+//$light-theme: mat-light-theme(
+//    $light-primary,
+//    $light-accent,
+//    $light-warn
+//);
+
+@mixin custom-components-theme($theme) {
+  @include custom-mat-select-theme($theme);
+  @include custom-mat-button-theme($theme);
+  @include custom-mat-checkbox($theme);
+}
+
+
+
+$dark-primary: mat-palette($mat-blue-gray);
+$dark-accent: mat-palette($mat-amber, 300);
+$dark-warn: mat-palette($mat-deep-orange, 300);
+$dark-brown: mat-palette($mat-brown, 300);
+
+@function my-dark-theme($primary, $accent, $warn, $extra-color) {
+  @return map-merge(mat-dark-theme($primary, $accent, $warn),
+    (inactive: $extra-color));
+}
+
+$dark-theme: my-dark-theme(
+    $dark-primary,
+    $dark-accent,
+    $dark-warn,
+    $dark-brown
+);
+
+@include angular-material-theme($my-light-theme);
+@include custom-components-theme($my-light-theme);
+
+.dark-theme {
+  @include angular-material-color($dark-theme);
+  @include custom-components-theme($dark-theme);
+}

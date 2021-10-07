@@ -1,0 +1,87 @@
+@import "~@angular/material/theming";
+
+@function theme-colors($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $brown: map-get($theme, inactive);
+  @return (
+    warn-color: mat-color($warn),
+    accent-color: mat-color($accent),
+    brown-color: mat-color($brown),
+  );
+}
+
+//@mixin theme-colors($theme) {
+//  $primary: map-get($theme, primary);
+//  $accent: map-get($theme, accent);
+//  $warn: map-get($theme, warn);
+//  $brown: map-get($theme, inactive);
+//  $accent-color: mat-color($accent);
+//  $brown-color: mat-color($brown);
+//}
+
+@mixin custom-mat-button-theme($theme) {
+  //@include theme-colors($theme);
+  $colors: theme-colors($theme);
+
+
+  .mat-flat-button {
+    background-color: map-get($colors, accent-color);
+    &.mat-primary, &.mat-accent, &.mat-warn, &.mat-button-disabled {
+      &.mat-button-disabled {
+        background-color: map-get($colors, brown-color);
+      }
+    }
+
+  }
+
+  .dark-theme {
+  .mat-button {
+    &.mat-button-disabled {
+      .mat-icon {
+        color: map-get($colors, brown-color);
+
+      }
+    }
+  }
+  }
+}
+
+
+@mixin custom-mat-select-theme($theme) {
+  //$primary: map-get($theme, primary);
+  //$accent: map-get($theme, accent);
+  //$warn: map-get($theme, warn);
+  //$brown: map-get($theme, inactive);
+  //$primary-color: mat-color($primary);
+  //$accent-color: mat-color($accent);
+  //$warn-color: mat-color($warn);
+  //$brown-color: mat-color($brown);
+
+  $colors: theme-colors($theme);
+  .dark-theme {
+    .mat-form-field-appearance-legacy .mat-form-field-label {
+      color: map-get($colors, brown-color);
+    }
+    .mat-select-arrow {
+      color: map-get($colors, brown-color);
+    }
+    .mat-form-field-appearance-legacy .mat-form-field-underline {
+      background-color: map-get($colors, brown-color);
+    }
+    .mat-select-value {
+      color: map-get($colors, warn-color);
+    }
+  }
+
+}
+@mixin custom-mat-checkbox($theme) {
+  $colors: theme-colors($theme);
+  .dark-theme {
+    .mat-checkbox-frame{
+      border-color: map-get($colors, accent-color);
+    }
+  }
+}
+

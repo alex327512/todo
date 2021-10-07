@@ -1,0 +1,21 @@
+<div class="admin">
+  <h2 class="admin-title">Sports Store Admin Panel</h2>
+  <div class="admin-buttons">
+    <button mat-raised-button color="primary" class="btn btn-outline-info btn-block"
+            routerLink="/store/admin/main/products"
+            routerLinkActive="active">
+      Products
+    </button>
+    <button mat-raised-button color="primary" class="btn btn-outline-info btn-block"
+            routerLink="/store/admin/main/orders"
+            routerLinkActive="active">
+      Orders
+    </button>
+    <button mat-raised-button color="warn" class="btn btn-outline-danger btn-block" (click)="logout()">
+      Logout
+    </button>
+  </div>
+  <div class="admin-table">
+    <router-outlet></router-outlet>
+  </div>
+</div>
